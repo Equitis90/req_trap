@@ -1,3 +1,14 @@
 // Place all the styles related to the trap controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.request {
+  width: 70%;
+  border-style: solid;
+  margin: 2px;
+
+  p {
+    padding: 2px;
+    word-break: break-all;
+  }
+}

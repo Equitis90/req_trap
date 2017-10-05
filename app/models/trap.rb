@@ -4,7 +4,8 @@ class Trap < ApplicationRecord
   private
 
   def self.create_request(env)
-    Request.create(
+    trap_id = env['REQUEST_PATH'][1..-1]
+    req = Request.create(
         request_date: Time.zone.now,
         remote_ip: env['REMOTE_ADDR'],
         request_method: env['REQUEST_METHOD'],
@@ -22,7 +23,9 @@ class Trap < ApplicationRecord
         http_version: env['HTTP_VERSION'],
         http_host: env['HTTP_HOST'],
         http_user_agent: env['HTTP_USER_AGENT'],
-        trap_id: self.where(trap_id: env['REQUEST_PATH'][1..-1]).first_or_create.id
+        trap_id: self.where(trap_id: trap_id).first_or_create.id
     )
+
+    ActionCable.server.broadcast('request_channel', req: req, trap_id: trap_id)
   end
 end
