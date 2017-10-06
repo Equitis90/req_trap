@@ -1,0 +1,11 @@
+/* line 5, /home/vlad/RubymineProjects/req_trap/app/assets/stylesheets/trap.scss */
+.request {
+  width: 70%;
+  border-style: solid;
+  margin: 2px;
+}
+/* line 10, /home/vlad/RubymineProjects/req_trap/app/assets/stylesheets/trap.scss */
+.request p {
+  padding: 2px;
+  word-break: break-all;
+}
