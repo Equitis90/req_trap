@@ -39,6 +39,16 @@ gem 'redis', '~> 3.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Using rspec for tests
+  gem 'rspec-rails', '~> 3.5.0'
+  # Using for cantroller testing
+  gem 'rails-controller-testing'
+  # Using for request mocking
+  gem 'webmock'
+  # Provide fake data with faker
+  gem 'faker'
+  # Fixures generation
+  gem 'factory_girl_rails'
 end
 
 group :development do
