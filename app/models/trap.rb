@@ -1,11 +1,13 @@
 class Trap < ApplicationRecord
   has_many :requests, :dependent => :destroy
 
+  validates_presence_of :trap_id
+
   private
 
   def self.create_request(env)
     trap_id = env['REQUEST_PATH'][1..-1]
-    req = Request.create(
+    Request.create(
         request_date: Time.zone.now,
         remote_ip: env['REMOTE_ADDR'],
         request_method: env['REQUEST_METHOD'],
@@ -26,6 +28,6 @@ class Trap < ApplicationRecord
         trap_id: self.where(trap_id: trap_id).first_or_create.id
     )
 
-    ActionCable.server.broadcast('request_channel', req: req, trap_id: trap_id)
+    ActionCable.server.broadcast('request_channel', trap_id: trap_id)
   end
 end

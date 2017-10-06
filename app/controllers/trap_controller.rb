@@ -13,4 +13,10 @@ class TrapController < ApplicationController
     @requests = Request.get_by_trap(params[:trap_id])
     @trap_id = params[:trap_id]
   end
+
+  def render_request
+    req = Request.get_by_trap(params[:trap_id]).first
+
+    render partial: 'trap/request', locals: {req: req}, layout: false
+  end
 end

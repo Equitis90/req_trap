@@ -20,6 +20,7 @@ request</p>
 <p>New requests will appear on the page in real time, without a page
   refresh.</p>
 
+<h2>Created traps:</h2>
 <% @traps.each do |trap| %>
     <%= link_to trap.trap_id, "/#{trap.trap_id}/requests"  %>
     <br>

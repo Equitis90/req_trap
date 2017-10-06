@@ -8,7 +8,13 @@ App.cable.subscriptions.create(
 
   received: function (data) {
     if(data['trap_id'] === $('#trap_id').attr('data-trap-id')) {
-      $('#container').prepend("<div>lol</div>");
+      $.ajax({
+        url: `/trap/render_request`,
+        type: 'GET',
+        data: {trap_id: data['trap_id']},
+      }).done(function(request_div) {
+        $('#container').prepend(request_div);
+      });
     }
   }
 });

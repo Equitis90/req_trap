@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   match '/:trap_id', to: 'trap#create', via: :all
   match '/:trap_id/requests', to: 'trap#requests', via: :all
+  get 'trap/render_request'
 end

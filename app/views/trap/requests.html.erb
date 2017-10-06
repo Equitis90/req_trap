@@ -1,5 +1,7 @@
 <h2 id="trap_id" data-trap-id="<%= @trap_id %>"><%= @trap_id %></h2>
 
 <div id='container'>
-  <%= render partial: 'trap/request', locals: {requests: @requests}%>
+  <% @requests.each do |req| %>
+    <%= render partial: 'trap/request', locals: {req: req} %>
+  <% end %>
 </div>
