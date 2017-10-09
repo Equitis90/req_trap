@@ -1,27 +1,32 @@
 <h1>This is the Request trap app!</h1>
 <h2>The app has three routes:</h2>
 
-<p>/&emsp;                       - splash page with some instructions</p>
-<p> /:trap_id&emsp;              - send requests to be captured here</p>
-<p>/:trap_id/requests&emsp;      - display requests here</p>
+<div class="well">
+  <p>/&emsp;                       - splash page with some instructions</p>
+  <p> /:trap_id&emsp;              - send requests to be captured here</p>
+  <p>/:trap_id/requests&emsp;      - display requests here</p>
 
-<p>Any request [POST, PUT, GET, DELETE, ...] made to /:trap_id will be
-  saved in the db and displayed in /:trap_id/requests</p>
+  <p>Any request [POST, PUT, GET, DELETE, ...] made to /:trap_id will be
+    saved in the db and displayed in /:trap_id/requests</p>
 
-<p>In response to any request made to /:trap_id, we will respond with the
-  correct http code if success or not.</p>
+  <p>In response to any request made to /:trap_id, we will respond with the
+    correct http code if success or not.</p>
 
-<p>In /:trap_id/requests you will see the trap_id in the header, and a
-list of the received requests, ordered by creation date DESC.</p>
+  <p>In /:trap_id/requests you will see the trap_id in the header, and a
+    list of the received requests, ordered by creation date DESC.</p>
 
-<p>Each request item displays all the information contained in the
-request</p>
+  <p>Each request item displays all the information contained in the
+    request</p>
 
-<p>New requests will appear on the page in real time, without a page
-  refresh.</p>
+  <p>New requests will appear on the page in real time, without a page
+    refresh.</p>
+</div>
+
 
 <h2>Created traps:</h2>
-<% @traps.each do |trap| %>
-    <%= link_to trap.trap_id, "/#{trap.trap_id}/requests"  %>
-    <br>
-<% end %>
+<div class="well">
+  <% @traps.each do |trap| %>
+      <%= link_to trap.trap_id, "/#{trap.trap_id}/requests"  %>
+      <br>
+  <% end %>
+</div>
