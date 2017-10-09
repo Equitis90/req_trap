@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.3.4'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -42,7 +43,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Using rspec for tests
-  gem 'rspec-rails', '~> 3.5.0'
+  gem 'rspec-rails', '~> 3.6'
   # Using for cantroller testing
   gem 'rails-controller-testing'
   # Using for request mocking
@@ -51,6 +52,12 @@ group :development, :test do
   gem 'faker'
   # Fixures generation
   gem 'factory_girl_rails'
+  # Feature specs with capybara
+  gem 'capybara'
+  # Driver for capybara
+  gem 'selenium-webdriver'
+  # Using chrome by default instead of firefox
+  gem 'chromedriver-helper'
 end
 
 group :development do
