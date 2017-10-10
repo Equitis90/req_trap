@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   root to: 'trap#index'
 
-  match '/:trap_id', to: 'trap#create', via: :all
-  match '/:trap_id/requests', to: 'trap#requests', via: :get
-  get 'trap/render_request'
+  match '/:trap_id/requests', to: 'trap#requests', :constraints => {:trap_id => /.*/}, via: :get
+  match '/:trap_id', to: 'trap#create', :constraints => {:trap_id => /.*/}, via: :all
 end
